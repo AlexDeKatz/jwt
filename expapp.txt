@@ -1,0 +1,63 @@
+@echo off
+
+title FSJD utility tool
+
+echo.
+echo                             ========================== UTILITY WIZARD ======================
+echo.
+echo How do you want to proceed?
+echo     [C]reate Express App           [S]et PATH            [E]xit
+echo.
+echo.
+
+set /p option="Enter your choice: "
+
+if %option%==C GOTO exGen
+
+if %option%==S GOTO data
+
+if %option%==E (
+	exit
+)
+	
+:exGen
+echo.
+set /p location="Enter workspace path: "
+echo.
+set /p folder="Enter Project name: "
+
+echo Application location: %location%\%folder%
+cd /d %location%
+
+mkdir %folder%
+
+cd /d %folder%
+
+mkdir src
+cd src
+mkdir model routes service utilities
+type nul > app.js
+cd routes
+type nul > routing.js
+
+cd ../../
+start /B /W cmd.exe /c "npm init --yes && npm install --save express"
+
+cd ../../
+echo.
+echo.
+echo Task completed! Please check above for errors/warnings
+echo.
+PAUSE
+goto:eof
+
+:data
+echo.
+setx Path "%Path%;C:\Program Files\MongoDB\Server\4.0\bin;%USERPROFILE%\AppData\Roaming\npm;"
+echo.
+echo Task completed! Please check above for errors/warnings
+PAUSE
+goto:eof
+
+
+

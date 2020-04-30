@@ -1,0 +1,18 @@
+{
+  "name": "express-auth-app",
+  "version": "1.0.0",
+  "description": "POC app for Toek based auth/JWT",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Piyush Maurya <piyush.maurya01@infosys.com>",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.4"
+  }
+}
